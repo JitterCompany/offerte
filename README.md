@@ -2,6 +2,10 @@
 
 Typst-based proposal system for Jitter B.V.
 
+## Requirements
+
+- [Typst](https://typst.app/) — `brew install typst`
+
 ## Structure
 
 ```
@@ -74,5 +78,3 @@ Everything after the `#show` rule is the free-form proposal body. The pricing, g
 # Build a single quote
 ./build.sh quotes/2604-001.typ
 ```
-
-Requires [Typst](https://typst.app/) (`brew install typst`).
