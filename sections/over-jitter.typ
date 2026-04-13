@@ -10,15 +10,21 @@
     elektronica, embedded firmware en software. Wij zijn de technische
     partner voor bedrijven die slimme hardware ontwikkelen.
 
-    Ons team van vier engineers ontwerpt en bouwt complete systemen ---
+    Ons team van vier engineers ontwerpt en bouwt complete systemen:
     van PCB-ontwerp en embedded Rust firmware tot cloud-backends en
     dashboards. Met ruim 10 jaar ervaring in productontwikkeling werken
     wij als verlengstuk van uw team.
 
-    *Directe toegang tot engineers* --- geen lagen van projectmanagers.
-    *Hardware en firmware onder één dak* --- geïntegreerd ontworpen.
-    *Langdurige partnerships* --- veel van onze klantrelaties zijn
-    uitgegroeid tot jarenlange samenwerkingen.
+    Daarnaast beschikt Jitter over een eigen
+    #link("https://jitter.nl/platform/")[platform] van beproefde
+    bouwblokken: herbruikbare hardware-modules, firmware-componenten en
+    software-libraries. Door deze in te zetten waar mogelijk besparen we
+    ontwikkeltijd en verhogen we de betrouwbaarheid van het eindresultaat.
+
+    - *Directe toegang tot engineers* --- geen lagen van projectmanagers.
+    - *Hardware en firmware onder één dak* --- geïntegreerd ontworpen.
+    - *Langdurige partnerships* --- veel van onze klantrelaties zijn
+      uitgegroeid tot jarenlange samenwerkingen.
   ]
 
   v(4pt)

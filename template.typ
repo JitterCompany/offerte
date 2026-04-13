@@ -27,6 +27,7 @@
   set par(leading: 0.65em, justify: true)
 
   show heading.where(level: 1): it => {
+    pagebreak(weak: true)
     v(16pt)
     block(text(size: 15pt, weight: "bold", fill: jitter-blue, it.body))
     v(6pt)

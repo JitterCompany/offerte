@@ -4,8 +4,8 @@ Typst-based proposal system for Jitter B.V. — an engineering company specializ
 
 ## Quick reference
 
-- **New quote**: Create a `quotes/XXXX-XXX.json` + `quotes/XXXX-XXX.typ` pair. Use an existing quote as starting point.
-- **Build**: `./build.sh` (all) or `./build.sh quotes/XXXX-XXX.typ` (single)
+- **New quote**: Create a `quotes/XXXX-XXX/` directory with a `.json` + `.typ` pair. Use an existing quote as starting point. Quote-specific assets (images, spreadsheets) live in the same directory.
+- **Build**: `./build.sh` (all) or `./build.sh quotes/XXXX-XXX/XXXX-XXX.typ` (single)
 - **Language**: Proposals are written in Dutch.
 
 ## Architecture
@@ -14,7 +14,7 @@ Typst-based proposal system for Jitter B.V. — an engineering company specializ
 - `brand.typ` — colors and logo
 - `data/company.json` — Jitter company info
 - `sections/` — modular section files (cover, pricing, guarantee, over-jitter, voorwaarden)
-- `quotes/` — per-proposal JSON (metadata/pricing) + typ (free-form content)
+- `quotes/XXXX-XXX/` — per-proposal directory with JSON, typ, and assets
 
 ## JSON config drives the ending sections
 

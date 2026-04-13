@@ -9,8 +9,8 @@ cd "$(dirname "$0")"
 
 build_quote() {
   local typ_file="$1"
-  local basename=$(basename "$typ_file" .typ)
-  local output="output/offerte-${basename}.pdf"
+  local dirname=$(basename "$(dirname "$typ_file")")
+  local output="output/offerte-${dirname}.pdf"
 
   echo "Building ${output}..."
   typst compile "$typ_file" "$output" --root .
@@ -21,7 +21,7 @@ if [ $# -eq 1 ]; then
   build_quote "$1"
 else
   echo "Building all quotes..."
-  for f in quotes/*.typ; do
+  for f in quotes/*/*.typ; do
     build_quote "$f"
   done
   echo "Done."

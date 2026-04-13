@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(typst compile:*)"
+      "Bash(typst compile:*)",
+      "Bash(./build.sh:*)"
     ]
   }
 }
