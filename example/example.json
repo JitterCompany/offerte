@@ -1,0 +1,24 @@
+{
+  "number": "0000-001",
+  "date": "1 april 2026",
+  "version": "1.0",
+  "title": "Perpetuum Mobile",
+  "subtitle": "Haalbaarheidsstudie voor een zelfvoorzienend energiesysteem op basis van oneindig draaiende tandwielen",
+  "client": {
+    "company": "Eeuwig B.V.",
+    "contact": "Dr. Ing. M.C. Escher"
+  },
+  "pricing": {
+    "items": [
+      ["Literatuurstudie thermodynamica (focus op uitzonderingen)", "€ 4.800", "2 weken"],
+      ["Ontwerp tandwieltrein met negatieve wrijving", "€ 7.200", "3 weken"],
+      ["Prototype en validatie (oneindig draaien)", "€ 9.600", "∞"]
+    ],
+    "note": "Mocht het prototype daadwerkelijk oneindig blijven draaien, dan wordt de validatiefase vroegtijdig afgesloten."
+  },
+  "payment": "Facturering in drie termijnen: 33% bij opdracht, 33% bij eerste omwenteling, 34% bij bewijs van eeuwige rotatie.",
+  "start": "Werkzaamheden starten op de eerste dag van de eeuwigheid, of maandag — wat eerder komt.",
+  "guarantee": "poc",
+  "validity_days": 30,
+  "over_jitter": true
+}

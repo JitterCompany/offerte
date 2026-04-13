@@ -4,8 +4,8 @@ Typst-based proposal system for Jitter B.V. — an engineering company specializ
 
 ## Quick reference
 
-- **New quote**: Create a `quotes/XXXX-XXX/` directory with a `.json` + `.typ` pair. Use an existing quote as starting point. Quote-specific assets (images, spreadsheets) live in the same directory.
-- **Build**: `./build.sh` (all) or `./build.sh quotes/XXXX-XXX/XXXX-XXX.typ` (single). The `offerte` wrapper can be used globally from any directory.
+- **New quote**: Create a directory with a `.json` + `.typ` pair. Use `example/` as starting point. Quotes live in their own project directories, not in this repo.
+- **Build**: `offerte quote.typ` (globally from any directory) or `./build.sh` (from within the repo).
 - **Language**: Proposals are written in Dutch.
 
 ## Architecture
@@ -14,7 +14,8 @@ Typst-based proposal system for Jitter B.V. — an engineering company specializ
 - `brand.typ` — colors and logo
 - `data/company.json` — Jitter company info
 - `sections/` — modular section files (cover, pricing, guarantee, over-jitter, voorwaarden)
-- `quotes/XXXX-XXX/` — per-proposal directory with JSON, typ, and assets
+- `example/` — example quote demonstrating all template features
+- `offerte` — global build wrapper (symlink to PATH)
 
 ## JSON config drives the ending sections
 
@@ -25,4 +26,4 @@ Set `"over_jitter": true` for new clients. Pricing items can be 2-col `["item", 
 
 1. Ask for: client name, project title, project type (poc/software/hardware), and a brief description of the work
 2. Generate both the JSON and typ file
-3. Compile with `./offerte quotes/XXXX-XXX/XXXX-XXX.typ` and verify the output
+3. Compile with `offerte path/to/quote.typ` and verify the output

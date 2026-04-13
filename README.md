@@ -19,19 +19,21 @@ sections/
   guarantee.typ            # Guarantee (poc / software / hardware)
   over-jitter.typ          # About section (for new clients)
   voorwaarden.typ          # Standard terms + validity
-quotes/
-  XXXX-XXX.json            # Quote metadata + pricing data
-  XXXX-XXX.typ             # Free-form proposal content
-output/                    # Generated PDFs
 template.typ               # Wires sections together
-build.sh                   # Build script
+build.sh                   # Internal build script
+offerte                    # Global build wrapper (symlink to PATH)
+example/                   # Example quote (perpetuum mobile)
 ```
+
+Quotes live in their own project directories outside this repository. The `offerte` command handles template resolution automatically.
 
 ## Creating a new proposal
 
-1. Copy an existing JSON + typ pair in `quotes/`
-2. Edit the **JSON** for metadata, client, pricing, and config
-3. Write the proposal content in the **typ** file
+1. Create a directory for the quote in your project folder
+2. Copy the `example/` JSON + typ pair as a starting point
+3. Edit the **JSON** for metadata, client, pricing, and config
+4. Write the proposal content in the **typ** file
+5. Run `offerte your-quote.typ` to build the PDF
 
 The standard ending sections (pricing table, voorwaarden, guarantee, validity, over-jitter) are assembled automatically based on the JSON.
 
@@ -82,17 +84,18 @@ Make sure `~/.local/bin` is in your `PATH`. Alternatively, set `OFFERTE_TEMPLATE
 ## Building
 
 ```bash
-# Build all quotes in the current directory
+# Build the example quote
+offerte example/example.typ
+
+# Build all .typ files in the current directory
 offerte
 
 # Build a single quote (output PDF appears next to the .typ file)
-offerte quotes/2604-001-tarka-systems/2604-001.typ
+offerte path/to/quote.typ
 
 # Build with custom output path
-offerte -o output/my-quote.pdf quotes/2604-001-tarka-systems/2604-001.typ
+offerte -o custom-output.pdf path/to/quote.typ
 ```
-
-Quotes can live anywhere on disk — they don't need to be inside this repository.
 
 ## How `offerte` works
 
