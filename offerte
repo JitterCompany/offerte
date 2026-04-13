@@ -1,0 +1,69 @@
+#!/bin/bash
+# Global wrapper for building Jitter offertes.
+# Handles .typ files both inside and outside the template repo.
+#
+# Usage:
+#   offerte quote.typ              # Output: quote.pdf (same directory)
+#   offerte -o out.pdf quote.typ   # Output: out.pdf
+#   offerte                        # Build all .typ files in current directory (recursive)
+
+set -euo pipefail
+
+TEMPLATE_DIR="${OFFERTE_TEMPLATE_DIR:-$(cd "$(dirname "$(readlink -f "$0")")" && pwd)}"
+
+# Parse arguments
+OUTPUT=""
+if [ "${1:-}" = "-o" ]; then
+  OUTPUT="$2"
+  shift 2
+fi
+
+build_quote() {
+  local typ_file="$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
+  local basename="$(basename "$typ_file" .typ)"
+  local typ_dir="$(dirname "$typ_file")"
+  local output="${OUTPUT:-${typ_dir}/${basename}.pdf}"
+
+  # Check if the file is already under the template dir
+  if [[ "$typ_file" == "$TEMPLATE_DIR"/* ]]; then
+    echo "Building ${output}..."
+    typst compile "$typ_file" "$output" --root "$TEMPLATE_DIR"
+  else
+    # Outside template repo — create a temporary root with symlinks
+    local build_root
+    build_root="$(mktemp -d)"
+    trap "rm -rf '$build_root'" RETURN
+
+    # Symlink all template contents into the temp root
+    for item in "$TEMPLATE_DIR"/*; do
+      ln -s "$item" "$build_root/$(basename "$item")"
+    done
+
+    # Copy the quote directory contents into the temp root
+    # (Typst resolves symlinks, so the .typ file must physically be under root)
+    local quote_dir="$build_root/_quote"
+    mkdir "$quote_dir"
+    cp -a "$typ_dir"/. "$quote_dir"/
+
+    echo "Building ${output}..."
+    typst compile "$quote_dir/$(basename "$typ_file")" "$output" --root "$build_root"
+  fi
+
+  echo "  -> ${output}"
+}
+
+if [ $# -ge 1 ]; then
+  build_quote "$1"
+else
+  echo "Building all .typ files in current directory..."
+  shopt -s nullglob globstar 2>/dev/null || true
+  found=0
+  for f in *.typ **/*.typ; do
+    build_quote "$f"
+    found=1
+  done
+  if [ "$found" -eq 0 ]; then
+    echo "No .typ files found."
+  fi
+  echo "Done."
+fi

@@ -60,7 +60,7 @@ The standard ending sections (pricing table, voorwaarden, guarantee, validity, o
 Standard Typst markup. Start with:
 
 ```typst
-#import "../template.typ": jitter-offerte
+#import "/template.typ": jitter-offerte
 #show: jitter-offerte.with(json("XXXX-XXX.json"))
 
 = Aanleiding
@@ -69,12 +69,31 @@ Standard Typst markup. Start with:
 
 Everything after the `#show` rule is the free-form proposal body. The pricing, guarantee, terms, and over-jitter sections are appended automatically.
 
+## Installation
+
+To use `offerte` from any directory, symlink it to a directory in your `PATH`:
+
+```bash
+ln -s "$(pwd)/offerte" ~/.local/bin/offerte
+```
+
+Make sure `~/.local/bin` is in your `PATH`. Alternatively, set `OFFERTE_TEMPLATE_DIR` to point to this repository if the symlink doesn't resolve correctly.
+
 ## Building
 
 ```bash
-# Build all quotes
-./build.sh
+# Build all quotes in the current directory
+offerte
 
-# Build a single quote
-./build.sh quotes/2604-001.typ
+# Build a single quote (output PDF appears next to the .typ file)
+offerte quotes/2604-001-tarka-systems/2604-001.typ
+
+# Build with custom output path
+offerte -o output/my-quote.pdf quotes/2604-001-tarka-systems/2604-001.typ
 ```
+
+Quotes can live anywhere on disk — they don't need to be inside this repository.
+
+## How `offerte` works
+
+Typst requires all source files to be under its `--root` directory. When a quote lives outside this repository, `offerte` creates a temporary build root containing symlinks to the template files and a copy of the quote directory, then compiles against that. For quotes already inside the repo, it compiles directly with `--root` pointing at the repo.
