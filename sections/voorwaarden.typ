@@ -7,7 +7,7 @@
   v(4pt)
   text(size: 9pt, fill: jitter-gray)[
     Bedragen zijn exclusief BTW en exclusief eventuele materiaalkosten.
-    Op deze aanbieding zijn onze algemene voorwaarden van toepassing.
+    Op deze aanbieding zijn onze #link("https://jitter.nl/assets/doc/Leveringsvoorwaarden%20Jitter%20BV.pdf")[algemene voorwaarden] van toepassing.
   ]
 
   // Payment terms (custom per quote)

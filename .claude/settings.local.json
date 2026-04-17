@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(typst compile:*)",
-      "Bash(./build.sh:*)"
+      "Bash(./build.sh:*)",
+      "Bash(curl -s -L https://jitter.nl/platform/)"
     ]
   }
 }

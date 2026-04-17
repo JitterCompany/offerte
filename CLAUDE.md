@@ -27,3 +27,7 @@ Set `"over_jitter": true` for new clients. Pricing items can be 2-col `["item", 
 1. Ask for: client name, project title, project type (poc/software/hardware), and a brief description of the work
 2. Generate both the JSON and typ file
 3. Compile with `offerte path/to/quote.typ` and verify the output
+
+## Writing guidelines
+
+- Do not use em-dashes `—` in Dutch sentences. Only exception is as separator in a list.
