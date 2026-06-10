@@ -10,6 +10,7 @@
 #import "sections/guarantee.typ": guarantee-section
 #import "sections/over-jitter.typ": over-jitter-section
 #import "sections/voorwaarden.typ": voorwaarden-section, validity-section
+#import "sections/i18n.typ": quote-lang, t
 
 #let _company = json("data/company.json")
 
@@ -22,7 +23,7 @@
     font: ("Helvetica Neue", "Helvetica", "Arial"),
     size: 10.5pt,
     fill: jitter-dark,
-    lang: "nl",
+    lang: quote-lang(data),
   )
   set par(leading: 0.65em, justify: true)
 
@@ -81,7 +82,7 @@
       set text(size: 7.5pt, fill: jitter-gray)
       grid(
         columns: (1fr, auto),
-        [#_company.name · KvK #_company.kvk · BTW #_company.vat],
+        [#_company.name · KvK #_company.kvk · #t(data, "vat-label") #_company.vat],
         data.date,
       )
     },
@@ -104,6 +105,6 @@
   guarantee-section(data)
 
   if data.at("over_jitter", default: false) {
-    over-jitter-section(_company)
+    over-jitter-section(_company, data)
   }
 }

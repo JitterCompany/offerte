@@ -1,6 +1,7 @@
 // Cover page section
 
 #import "../brand.typ": *
+#import "i18n.typ": t
 
 #let cover-page(data, company) = {
   page(
@@ -37,7 +38,7 @@
     #{
       let meta = ()
       if data.at("client", default: none) != none {
-        meta.push([*Aan*])
+        meta.push(strong(t(data, "cover-to")))
         let client = data.client
         let parts = ()
         if client.at("contact", default: none) != none {
@@ -46,14 +47,20 @@
         if client.at("company", default: none) != none {
           parts.push(client.company)
         }
+        // Optional postal address: a string (newlines split into lines) or an array of lines
+        let address = client.at("address", default: none)
+        if address != none {
+          let lines = if type(address) == array { address } else { address.split("\n") }
+          for line in lines { parts.push(line) }
+        }
         meta.push(parts.join(linebreak()))
       }
-      meta.push([*Van*])
+      meta.push(strong(t(data, "cover-from")))
       meta.push(company.name)
-      meta.push([*Datum*])
+      meta.push(strong(t(data, "cover-date")))
       meta.push(data.date)
       if data.at("version", default: none) != none {
-        meta.push([*Versie*])
+        meta.push(strong(t(data, "cover-version")))
         meta.push(data.version)
       }
       grid(
@@ -69,7 +76,7 @@
     #set text(size: 8pt, fill: jitter-gray)
     #company.street · #company.postcode #company.city · #company.country \
     #company.phone · #company.email · #link("https://" + company.web)[#company.web] \
-    KvK #company.kvk · BTW #company.vat
+    KvK #company.kvk · #t(data, "vat-label") #company.vat
 
     // Reset page counter so first body page = 1
     #counter(page).update(0)
