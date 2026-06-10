@@ -1,35 +1,16 @@
 // About Jitter section — for proposals to new clients
 
 #import "../brand.typ": *
+#import "i18n.typ": t
 
-#let over-jitter-section(company) = {
-  heading(level: 1)[Over Jitter]
+#let over-jitter-section(company, data) = {
+  heading(level: 1)[#t(data, "over-jitter-heading")]
 
-  [
-    Jitter B.V. is een ingenieursbureau in Delft, gespecialiseerd in
-    elektronica, embedded firmware en software. Wij zijn de technische
-    partner voor bedrijven die slimme hardware ontwikkelen.
-
-    Ons team van vier engineers ontwerpt en bouwt complete systemen:
-    van PCB-ontwerp en embedded Rust firmware tot cloud-backends en
-    dashboards. Met ruim 10 jaar ervaring in productontwikkeling werken
-    wij als verlengstuk van uw team.
-
-    Daarnaast beschikt Jitter over een eigen
-    #link("https://jitter.nl/platform/")[platform] van beproefde
-    bouwblokken: herbruikbare hardware-modules, firmware-componenten en
-    software-libraries. Door deze in te zetten waar mogelijk besparen we
-    ontwikkeltijd en verhogen we de betrouwbaarheid van het eindresultaat.
-
-    - *Directe toegang tot engineers* --- geen lagen van projectmanagers.
-    - *Hardware en firmware onder één dak* --- geïntegreerd ontworpen.
-    - *Langdurige partnerships* --- veel van onze klantrelaties zijn
-      uitgegroeid tot jarenlange samenwerkingen.
-  ]
+  t(data, "over-jitter-body")
 
   v(4pt)
   text(size: 9pt, fill: jitter-gray)[
-    Meer informatie: #link("https://" + company.web)[#company.web]
+    #t(data, "over-jitter-more") #link("https://" + company.web)[#company.web]
     · #link("mailto:" + company.email)[#company.email]
     · #company.phone
   ]

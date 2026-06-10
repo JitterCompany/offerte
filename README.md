@@ -14,6 +14,7 @@ brand.typ                  # Brand colors + logo helper
 data/
   company.json             # Jitter company info
 sections/
+  i18n.typ                 # NL/EN translations for template-generated text
   cover.typ                # Cover page layout
   pricing.typ              # Pricing table
   guarantee.typ            # Guarantee (poc / software / hardware)
@@ -42,18 +43,21 @@ The standard ending sections (pricing table, voorwaarden, guarantee, validity, o
 | Field | Required | Description |
 |---|---|---|
 | `number` | yes | Reference number, e.g. `"2604-001"` |
+| `language` | no | Language of the template-generated sections: `"nl"` or `"en"` (default: `"nl"`). The free-form body is written manually in the chosen language. |
 | `date` | yes | Date string, e.g. `"10 april 2026"` |
 | `title` | yes | Proposal title |
 | `subtitle` | no | Subtitle shown below title on cover |
 | `version` | no | Version string, e.g. `"1.0"` |
 | `client.company` | no | Client company name |
 | `client.contact` | no | Client contact person |
+| `client.address` | no | Client postal address shown in the "To" block; a string (newlines split into lines) or an array of lines |
 | `pricing.items` | no | Array of `["description", "cost"]` or `["description", "cost", "timeline"]` |
 | `pricing.note` | no | Footnote below pricing table |
 | `payment` | no | Payment terms text |
 | `start` | no | Start date text |
-| `guarantee` | no | `"poc"`, `"software"`, or `"hardware"` (default: `"software"`) |
-| `guarantee_months` | no | Bug-free guarantee period (default: 3, ignored for poc) |
+| `guarantee` | no | `"poc"`, `"software"`, `"hardware"`, or `"custom"` (default: `"software"`) |
+| `guarantee_text` | no | Used when `guarantee` is `"custom"`: the guarantee body as a string or an array of paragraphs (in the quote's language) |
+| `guarantee_months` | no | Bug-free guarantee period (default: 3, ignored for poc/custom) |
 | `validity_days` | no | Offer validity in days (default: 30) |
 | `over_jitter` | no | Include "Over Jitter" section (default: false) |
 

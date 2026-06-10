@@ -1,14 +1,12 @@
 // Standard terms: pricing footnote, payment, start date, validity
 
 #import "../brand.typ": *
+#import "i18n.typ": t
 
 #let voorwaarden-section(data) = {
   // Pricing footnote
   v(4pt)
-  text(size: 9pt, fill: jitter-gray)[
-    Bedragen zijn exclusief BTW en exclusief eventuele materiaalkosten.
-    Op deze aanbieding zijn onze #link("https://jitter.nl/assets/doc/Leveringsvoorwaarden%20Jitter%20BV.pdf")[algemene voorwaarden] van toepassing.
-  ]
+  text(size: 9pt, fill: jitter-gray)[#t(data, "terms-note")]
 
   // Payment terms (custom per quote)
   if data.at("payment", default: none) != none [
@@ -30,5 +28,5 @@
     size: 9.5pt,
     style: "italic",
     fill: jitter-gray,
-  )[Deze aanbieding is geldig tot #days dagen na de datum op dit document.]
+  )[#(t(data, "validity"))(days)]
 }
