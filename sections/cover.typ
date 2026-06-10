@@ -16,7 +16,7 @@
 
     #v(1fr)
 
-    #text(size: 28pt, weight: "bold", fill: jitter-dark, tracking: -0.5pt)[#data.title]
+    #text(size: 28pt, weight: "bold", fill: jitter-dark, tracking: -0.5pt)[#data.title.split("\n").map(part => [#part]).join(linebreak())]
 
     #if data.at("subtitle", default: none) != none [
       #v(6pt)

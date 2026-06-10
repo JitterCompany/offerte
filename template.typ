@@ -99,9 +99,9 @@
 
   voorwaarden-section(data)
 
-  guarantee-section(data)
-
   validity-section(data)
+
+  guarantee-section(data)
 
   if data.at("over_jitter", default: false) {
     over-jitter-section(_company)

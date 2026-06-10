@@ -2,12 +2,8 @@
 
 #import "../brand.typ": *
 
-#let pricing-section(data) = {
-  heading(level: 1)[Kosten en planning]
-
-  let items = data.pricing.items
+#let _render-table(items) = {
   let ncols = items.first().len()
-
   if ncols >= 3 {
     table(
       columns: (1fr, auto, auto),
@@ -24,6 +20,28 @@
       table.header([*Onderdeel*], [*Kosten*]),
       ..items.map(row => (row.at(0), row.at(1))).flatten(),
     )
+  }
+}
+
+#let pricing-section(data) = {
+  heading(level: 1)[Kosten en planning]
+
+  // Grouped pricing: sections with title + items
+  if data.pricing.at("sections", default: none) != none {
+    for section in data.pricing.sections {
+      if section.at("pagebreak_before", default: false) {
+        pagebreak()
+      }
+      heading(level: 2)[#section.title]
+      _render-table(section.items)
+      if section.at("subtotal", default: none) != none {
+        v(4pt)
+        align(right, text(weight: "bold", size: 10.5pt)[#section.subtotal])
+      }
+    }
+  // Flat pricing: single list of items (backward compatible)
+  } else {
+    _render-table(data.pricing.items)
   }
 
   if data.pricing.at("note", default: none) != none {

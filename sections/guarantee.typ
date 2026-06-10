@@ -1,7 +1,7 @@
 // Guarantee section — variant driven by data.guarantee field
 
 #let guarantee-section(data) = {
-  heading(level: 2)[Garantie]
+  heading(level: 2)[Ontwikkelgarantie]
 
   let kind = data.at("guarantee", default: "software")
   let months = data.at("guarantee_months", default: 3)
