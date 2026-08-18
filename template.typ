@@ -13,7 +13,7 @@
 
 #let _company = json("data/company.json")
 
-#let jitter-offerte(data, body) = {
+#let jitter-offerte(data, bijlage: none, body) = {
   set document(title: data.title, author: (_company.name,))
 
   // ── Base typography ──
@@ -22,7 +22,7 @@
     font: ("Helvetica Neue", "Helvetica", "Arial"),
     size: 10.5pt,
     fill: jitter-dark,
-    lang: "nl",
+    lang: data.at("language", default: "nl"),
   )
   set par(leading: 0.65em, justify: true)
 
@@ -101,9 +101,15 @@
 
   validity-section(data)
 
-  guarantee-section(data)
+  if data.at("guarantee", default: "software") != "none" {
+    guarantee-section(data)
+  }
 
   if data.at("over_jitter", default: false) {
-    over-jitter-section(_company)
+    over-jitter-section(_company, lang: data.at("language", default: "nl"))
+  }
+
+  if bijlage != none {
+    bijlage
   }
 }

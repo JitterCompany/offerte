@@ -16,6 +16,15 @@
 
     #v(1fr)
 
+    // Document type label, so the reader immediately sees this is a
+    // proposal and not the deliverable itself
+    #{
+      let default-doctype = if data.at("language", default: "nl") == "en" { "Proposal" } else { "Offerte" }
+      let doctype = data.at("doctype", default: default-doctype)
+      text(size: 13pt, weight: "bold", fill: jitter-blue, tracking: 3pt)[#upper(doctype)]
+    }
+    #v(10pt)
+
     #text(size: 28pt, weight: "bold", fill: jitter-dark, tracking: -0.5pt)[#data.title.split("\n").map(part => [#part]).join(linebreak())]
 
     #if data.at("subtitle", default: none) != none [
@@ -35,9 +44,10 @@
     // Metadata table
     #set text(size: 10.5pt)
     #{
+      let en = data.at("language", default: "nl") == "en"
       let meta = ()
       if data.at("client", default: none) != none {
-        meta.push([*Aan*])
+        meta.push(if en [*To*] else [*Aan*])
         let client = data.client
         let parts = ()
         if client.at("contact", default: none) != none {
@@ -48,12 +58,12 @@
         }
         meta.push(parts.join(linebreak()))
       }
-      meta.push([*Van*])
+      meta.push(if en [*From*] else [*Van*])
       meta.push(company.name)
-      meta.push([*Datum*])
+      meta.push(if en [*Date*] else [*Datum*])
       meta.push(data.date)
       if data.at("version", default: none) != none {
-        meta.push([*Versie*])
+        meta.push(if en [*Version*] else [*Versie*])
         meta.push(data.version)
       }
       grid(
