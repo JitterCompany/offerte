@@ -25,8 +25,19 @@ Set `"over_jitter": true` for new clients. Pricing items can be 2-col `["item", 
 ## When helping create a new proposal
 
 1. Ask for: client name, project title, project type (poc/software/hardware), and a brief description of the work
-2. Generate both the JSON and typ file
-3. Compile with `offerte path/to/quote.typ` and verify the output
+2. Get the next free offerte number (see below)
+3. Generate both the JSON and typ file
+4. Compile with `offerte path/to/quote.typ` and verify the output
+
+## Offerte numbers
+
+Format `OF<yy>-<nnn>-<v>`, for example `OF99-123-1`:
+
+- `yy` is the year the offerte is first sent.
+- `nnn` identifies the offerte. The next free one always comes from the register in Jitter's private knowledge base. Never derive it from existing folders and never guess it.
+- `v` is the version the customer received, from 1. A revision keeps `nnn` and gets the next `v`. Drafts before the first send are not versions.
+
+The folder is named without the version (`OF99-123/`) and holds one `.json` + `.typ` + `.pdf` set per sent version (`OF99-123-1.*`, `OF99-123-2.*`). Put the full number in the JSON `number` field and leave `version` out, since the number already carries it. Add a new offerte to the register when you create it.
 
 ## Writing guidelines
 
