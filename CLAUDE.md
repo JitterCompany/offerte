@@ -24,6 +24,17 @@ Set `"over_jitter": true` for new clients. Pricing items can be 2-col `["item", 
 
 The JSON `language` field (`"nl"` default, or `"en"`) switches all template-generated sections (cover labels, pricing header, guarantee, terms, validity, over-jitter) between Dutch and English. Translations live in `sections/i18n.typ`. The free-form body is written manually in the chosen language. Proposals are Dutch by default; only write English when the client requests it.
 
+## Standard design review quotes
+
+`design-review/review.typ` generates the whole body and terms of a fixed-price PCB design review (website offer). The quote JSON only needs `number`, `language`, `date`, `product`, `client` and optionally `focus` (the client's own points), `lead_time` (default 5 working days) and `price` (default € 599). Any other JSON field overrides the generated default. The quote typ is two lines:
+
+```typst
+#import "/design-review/review.typ": design-review-offerte
+#show: design-review-offerte.with(json("OF26-343-1.json"))
+```
+
+The template includes a confidentiality section, so we do not sign separate NDAs for standard reviews.
+
 ## When helping create a new proposal
 
 1. Ask for: client name, project title, project type (poc/software/hardware), and a brief description of the work

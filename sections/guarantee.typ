@@ -3,7 +3,8 @@
 #import "i18n.typ": t
 
 #let guarantee-section(data) = {
-  heading(level: 2)[#t(data, "guarantee-heading")]
+  let title = data.at("guarantee_heading", default: none)
+  heading(level: 2)[#if title != none [#title] else [#t(data, "guarantee-heading")]]
 
   let kind = data.at("guarantee", default: "software")
 
