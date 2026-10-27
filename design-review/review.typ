@@ -18,7 +18,7 @@
     note: "Fixed price.",
     payment: [Payment in full in advance. After your acceptance we send an invoice. Please pay by bank transfer to Jitter B.V., IBAN #_iban, quoting the invoice number. We start the review once the payment has been received.],
     guarantee-heading: "Guarantee",
-    guarantee: "No remarks, money back. If our review report contains no remarks at all, you get the full amount back.",
+    guarantee: "No comments, money back. If we find nothing that can be improved during the review, you get the full amount back.",
     body: (product, focus) => [
       = Proposal
 
@@ -69,7 +69,7 @@
     note: "Vaste prijs.",
     payment: [U betaalt vooraf. Na uw akkoord sturen we een factuur. U betaalt per bankoverschrijving aan Jitter B.V., IBAN #_iban, onder vermelding van het factuurnummer. We starten de review zodra de betaling binnen is.],
     guarantee-heading: "Garantie",
-    guarantee: "Geen opmerkingen, geld terug. Bevat ons reviewrapport geen enkele opmerking, dan krijgt u het volledige bedrag terug.",
+    guarantee: "Geen opmerkingen, geld terug. Vinden we tijdens de review niets dat beter kan, dan krijgt u het volledige bedrag terug.",
     body: (product, focus) => [
       = Voorstel
 
