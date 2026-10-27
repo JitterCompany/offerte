@@ -57,8 +57,7 @@
       This applies to all files you send us for the review, also before you
       accept this offer, and lasts three years after the review. It does not
       cover information that is public, that we already had, or that we
-      develop independently, nor the general know-how we gain (article 11 of
-      our general terms). It does not restrict us from working for other
+      develop independently, nor general know-how. It does not restrict us from working for other
       companies, also in the same field.
     ],
   ),
@@ -111,8 +110,7 @@
       Dit geldt voor alle bestanden die u ons voor de review stuurt, ook
       voordat u deze aanbieding accepteert, en tot drie jaar na de review.
       Het geldt niet voor informatie die openbaar is, die we al hadden of die
-      we zelf ontwikkelen, en niet voor de algemene kennis die we opdoen
-      (artikel 11 van onze algemene voorwaarden). Het beperkt ons niet in
+      we zelf ontwikkelen, en niet voor algemene kennis. Het beperkt ons niet in
       werk voor andere bedrijven, ook niet in dezelfde branche.
     ],
   ),
