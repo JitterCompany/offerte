@@ -28,10 +28,15 @@
 
       == Scope
 
+      Depending on the design and your focus, we look at:
+
       - Schematic and component choice, including availability.
       - PCB layout, power integrity and signal integrity.
       - Reliability: thermal behaviour, derating and ESD protection.
       - Architecture and manufacturability.
+
+      We spend the time where the risks are, so not every point gets the
+      same depth.
 
       #if focus.len() > 0 [
         As you asked, we pay particular attention to:
@@ -79,10 +84,15 @@
 
       == Scope
 
+      Afhankelijk van het ontwerp en uw focus kijken we naar:
+
       - Schema en componentkeuze, inclusief beschikbaarheid.
       - PCB-layout, power integrity en signal integrity.
       - Betrouwbaarheid: warmte, derating en ESD-bescherming.
       - Architectuur en produceerbaarheid.
+
+      We besteden de tijd waar de risico's zitten, dus niet elk punt krijgt
+      evenveel diepgang.
 
       #if focus.len() > 0 [
         Op uw verzoek letten we extra op:
