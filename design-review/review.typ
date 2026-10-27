@@ -28,18 +28,18 @@
 
       == Scope
 
-      - Schematic and component choice.
+      - Schematic and component choice, including availability.
       - PCB layout, power integrity and signal integrity.
-      - Reliability, including ESD protection.
-      - Manufacturability.
+      - Reliability: thermal behaviour, derating and ESD protection.
+      - Architecture and manufacturability.
 
       #if focus.len() > 0 [
         As you asked, we pay particular attention to:
         #list(..focus.map(f => [#f]))
       ]
 
-      You receive a PDF report. Each finding has a severity, an explanation
-      and a recommended fix. A call to go through the report is included.
+      You receive a PDF report: what is good, what can be improved and why,
+      with a severity and a recommended fix per finding. A call to go through the report is included.
 
       The offer covers one review round on the files you send us. If you
       change the design after the review, a second review is a new
@@ -79,18 +79,18 @@
 
       == Scope
 
-      - Schema en componentkeuze.
+      - Schema en componentkeuze, inclusief beschikbaarheid.
       - PCB-layout, power integrity en signal integrity.
-      - Betrouwbaarheid, inclusief ESD-bescherming.
-      - Produceerbaarheid.
+      - Betrouwbaarheid: warmte, derating en ESD-bescherming.
+      - Architectuur en produceerbaarheid.
 
       #if focus.len() > 0 [
         Op uw verzoek letten we extra op:
         #list(..focus.map(f => [#f]))
       ]
 
-      U ontvangt een PDF-rapport. Per bevinding staan de ernst, een uitleg en
-      een advies voor de oplossing. Een gesprek om het rapport door te nemen
+      U ontvangt een PDF-rapport: wat goed is, wat beter kan en waarom, met
+      per bevinding de ernst en een advies voor de oplossing. Een gesprek om het rapport door te nemen
       is inbegrepen.
 
       De aanbieding omvat één reviewronde op de bestanden die u ons stuurt.
