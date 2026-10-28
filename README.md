@@ -71,6 +71,32 @@ Standard Typst markup. Start with:
 
 Everything after the `#show` rule is the free-form proposal body. The pricing, guarantee, terms, and over-jitter sections are appended automatically.
 
+## Contracts
+
+`contract.typ` is a second template, for short contracts between Jitter and another company: a frame order, a supply agreement, a service agreement. It shares the brand with the offertes but has no cover page. The layout is generic; each contract brings its own clauses.
+
+- Two parties side by side. A party with `"jitter": true` is filled in from `data/company.json`.
+- Numbered sections and clauses (4.3), so both sides can refer to a point.
+- A signature block for both parties.
+
+Start from `example-contract/supply-agreement.json` and build it like an offerte:
+
+```bash
+offerte example-contract/supply-agreement.typ
+```
+
+| Field | Required | Description |
+|---|---|---|
+| `title` | yes | Contract type, e.g. `"Supply agreement"` |
+| `number` | yes | Our reference |
+| `date` | yes | Date string |
+| `language` | no | `"en"` (default) or `"nl"`, for the labels |
+| `reference` | no | Their offer or our earlier document |
+| `parties` | yes | Two parties: `role`, plus either `"jitter": true` or `name`, `address` (array of lines), `reg_no`, `vat`, `note` |
+| `sections` | yes | Array of `{ "title", "clauses": [...] }`. Clauses are Typst markup, so `*bold*` works |
+
+Check the other party's VAT number in [VIES](https://ec.europa.eu/taxation_customs/vies/) before sending. It also returns the registered office, which is the address to put in the contract.
+
 ## Installation
 
 To use `offerte` from any directory, symlink it to a directory in your `PATH`:
