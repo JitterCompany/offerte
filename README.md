@@ -29,7 +29,7 @@ Quotes live in their own project directories outside this repository. The `offer
 
 ## Creating a new proposal
 
-1. Create a directory for the quote in your project folder
+1. Get the next free offerte number from the register, and create a directory named after it (e.g. `OF99-123/`)
 2. Copy the `example/` JSON + typ pair as a starting point
 3. Edit the **JSON** for metadata, client, pricing, and config
 4. Write the proposal content in the **typ** file
@@ -41,7 +41,7 @@ The standard ending sections (pricing table, voorwaarden, guarantee, validity, o
 
 | Field | Required | Description |
 |---|---|---|
-| `number` | yes | Reference number, e.g. `"2604-001"` |
+| `number` | yes | Offerte number including the version, e.g. `"OF99-123-1"` |
 | `date` | yes | Date string, e.g. `"10 april 2026"` |
 | `title` | yes | Proposal title |
 | `subtitle` | no | Subtitle shown below title on cover |
