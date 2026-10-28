@@ -14,6 +14,7 @@ brand.typ                  # Brand colors + logo helper
 data/
   company.json             # Jitter company info
 sections/
+  i18n.typ                 # NL/EN text for everything the template generates
   cover.typ                # Cover page layout
   pricing.typ              # Pricing table
   guarantee.typ            # Guarantee (poc / software / hardware)
@@ -42,18 +43,21 @@ The standard ending sections (pricing table, voorwaarden, guarantee, validity, o
 | Field | Required | Description |
 |---|---|---|
 | `number` | yes | Offerte number including the version, e.g. `"OF99-123-1"` |
+| `language` | no | `"nl"` (default) or `"en"`, for all template-generated text. The free-form body is written by hand in that language |
 | `date` | yes | Date string, e.g. `"10 april 2026"` |
 | `title` | yes | Proposal title |
 | `subtitle` | no | Subtitle shown below title on cover |
 | `version` | no | Version string, e.g. `"1.0"` |
 | `client.company` | no | Client company name |
 | `client.contact` | no | Client contact person |
+| `client.address` | no | Client postal address under the client name: a string (newlines split into lines) or an array of lines |
 | `pricing.items` | no | Array of `["description", "cost"]` or `["description", "cost", "timeline"]` |
 | `pricing.note` | no | Footnote below pricing table |
 | `payment` | no | Payment terms text |
 | `start` | no | Start date text |
-| `guarantee` | no | `"poc"`, `"software"`, or `"hardware"` (default: `"software"`) |
-| `guarantee_months` | no | Bug-free guarantee period (default: 3, ignored for poc) |
+| `guarantee` | no | `"poc"`, `"software"`, `"hardware"`, `"general"` or `"custom"` (default: `"software"`) |
+| `guarantee_text` | no | For `"custom"`: the guarantee as a string or an array of paragraphs, in the quote's language |
+| `guarantee_months` | no | Bug-free guarantee period (default: 3, ignored for poc and custom) |
 | `validity_days` | no | Offer validity in days (default: 30) |
 | `over_jitter` | no | Include "Over Jitter" section (default: false) |
 
