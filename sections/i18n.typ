@@ -17,6 +17,7 @@
     cover-from: [Van],
     cover-date: [Datum],
     cover-version: [Versie],
+    vat-label: [BTW],
 
     pricing-heading: [Kosten en planning],
     pricing-col-item: [Onderdeel],
@@ -96,6 +97,7 @@
     cover-from: [From],
     cover-date: [Date],
     cover-version: [Version],
+    vat-label: [VAT],
 
     pricing-heading: [Pricing and planning],
     pricing-col-item: [Item],
