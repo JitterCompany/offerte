@@ -7,6 +7,7 @@ Typst-based proposal system for Jitter B.V. — an engineering company specializ
 - **New quote**: Create a directory with a `.json` + `.typ` pair. Use `example/` as starting point. Quotes live in their own project directories, not in this repo.
 - **Build**: `offerte quote.typ` (globally from any directory) or `./build.sh` (from within the repo).
 - **Language**: Proposals are written in Dutch.
+- **Contracts**: `contract.typ` with `example-contract/` as starting point. Generic layout, clauses come from the JSON. See README.
 
 ## Architecture
 

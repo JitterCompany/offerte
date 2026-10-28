@@ -1,0 +1,33 @@
+{
+  "title": "Supply agreement",
+  "number": "0000-SA-001",
+  "date": "1 April 2026",
+  "language": "en",
+  "reference": "your quote for frictionless gears",
+  "parties": [
+    { "role": "Buyer", "jitter": true },
+    {
+      "role": "Supplier",
+      "name": "ExampleCompany",
+      "address": ["Example Street 1", "12345 Exampletown", "Exampleland"],
+      "reg_no": "00000000",
+      "vat": "XX00000000",
+      "note": "Workshop: Other Street 2, 54321 Othertown"
+    }
+  ],
+  "sections": [
+    { "title": "Subject", "clauses": [
+      "Frictionless gears, type *EG-∞*, for the perpetual motion prototype.",
+      "Each gear keeps turning once set in motion. A gear that stops is replaced free of charge."
+    ]},
+    { "title": "Price", "clauses": [
+      "EUR 1.00 per gear, payable once the first gear has turned for a full week."
+    ]},
+    { "title": "Delivery", "clauses": [
+      "The supplier delivers on the first day of eternity, or on Monday, whichever comes first."
+    ]},
+    { "title": "General", "clauses": [
+      "Disputes about the second law of thermodynamics are settled by experiment."
+    ]}
+  ]
+}
