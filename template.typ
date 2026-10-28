@@ -10,6 +10,7 @@
 #import "sections/guarantee.typ": guarantee-section
 #import "sections/over-jitter.typ": over-jitter-section
 #import "sections/voorwaarden.typ": voorwaarden-section, validity-section
+#import "sections/i18n.typ": quote-lang
 
 #let _company = json("data/company.json")
 
@@ -22,7 +23,7 @@
     font: ("Helvetica Neue", "Helvetica", "Arial"),
     size: 10.5pt,
     fill: jitter-dark,
-    lang: data.at("language", default: "nl"),
+    lang: quote-lang(data),
   )
   set par(leading: 0.65em, justify: true)
 
@@ -106,7 +107,7 @@
   }
 
   if data.at("over_jitter", default: false) {
-    over-jitter-section(_company, lang: data.at("language", default: "nl"))
+    over-jitter-section(_company, data)
   }
 
   if bijlage != none {

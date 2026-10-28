@@ -1,14 +1,11 @@
 // Pricing table section
 
 #import "../brand.typ": *
+#import "i18n.typ": t
 
-#let _render-table(items, en: false) = {
+#let _render-table(data, items) = {
   let ncols = items.first().len()
-  let headers = if en {
-    ([*Item*], [*Cost*], [*Lead time*])
-  } else {
-    ([*Onderdeel*], [*Kosten*], [*Doorlooptijd*])
-  }
+  let headers = ("pricing-col-item", "pricing-col-cost", "pricing-col-lead").map(k => strong(t(data, k)))
   if ncols >= 3 {
     table(
       columns: (1fr, auto, auto),
@@ -29,11 +26,7 @@
 }
 
 #let pricing-section(data) = {
-  if data.at("language", default: "nl") == "en" {
-    heading(level: 1)[Pricing and planning]
-  } else {
-    heading(level: 1)[Kosten en planning]
-  }
+  heading(level: 1)[#t(data, "pricing-heading")]
 
   // Grouped pricing: sections with title + items
   if data.pricing.at("sections", default: none) != none {
@@ -42,7 +35,7 @@
         pagebreak()
       }
       heading(level: 2)[#section.title]
-      _render-table(section.items, en: data.at("language", default: "nl") == "en")
+      _render-table(data, section.items)
       if section.at("subtotal", default: none) != none {
         v(4pt)
         align(right, text(weight: "bold", size: 10.5pt)[#section.subtotal])
@@ -50,7 +43,7 @@
     }
   // Flat pricing: single list of items (backward compatible)
   } else {
-    _render-table(data.pricing.items, en: data.at("language", default: "nl") == "en")
+    _render-table(data, data.pricing.items)
   }
 
   if data.pricing.at("note", default: none) != none {
